@@ -1,0 +1,5 @@
+{
+    "baseUrl": "http://10.0.232.229:80/ServiciosBNCR/ProxyServices/",
+    "video": true,
+    "screenshotOnRunFailure": true 
+}

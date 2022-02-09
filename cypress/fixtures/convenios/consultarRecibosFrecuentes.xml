@@ -1,0 +1,28 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sn="http://www.bncr.fi.cr/soa/SN_ConsultaRecibosFrecuentes">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sn:solicitud>
+         <sn:encabezado>
+            <sn:fechaHoraConsumo>2020-01-26T19:15:54.294Z</sn:fechaHoraConsumo>
+            <sn:canalConsumidor>IBP</sn:canalConsumidor>
+            <sn:usuarioConsumidor>503260547</sn:usuarioConsumidor>
+            <sn:direccionIPConsumo>?</sn:direccionIPConsumo>
+            <sn:nombreServicio>?</sn:nombreServicio>
+         </sn:encabezado>
+         <!--Optional:-->
+         <sn:cuerpo>
+            <!--Optional:-->
+            <sn:entradaServicio>
+               <!--Optional:-->
+               <sn:numeroCliente>428402</sn:numeroCliente>
+               <!--Optional:-->
+               <sn:codigoEmpresa>3</sn:codigoEmpresa>
+               <!--Optional:-->
+               <sn:codigoConvenio>1</sn:codigoConvenio>
+               <!--Optional:-->
+               <sn:producto>CNV</sn:producto>
+            </sn:entradaServicio>
+         </sn:cuerpo>
+      </sn:solicitud>
+   </soapenv:Body>
+</soapenv:Envelope>
