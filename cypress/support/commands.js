@@ -47,3 +47,71 @@ Cypress.Commands.add('postMethod', (path, body) => {
         return response
     })
 })
+
+Cypress.Commands.add('convertToJson', (xml) =>{
+    var json = convertirXmlEnObjeto(xml)
+    return json
+})
+
+
+// Generic function
+function convertirXmlEnObjeto(xml) {
+    
+    let object = {};
+    let isRoot = false;
+
+    if (xml.nodeType == 1) {
+        if (xml.attributes.length > 0) {
+            for (var j = 0; j < xml.attributes.length; j++) {
+                var attribute = xml.attributes.item(j);
+                object[attribute.nodeName] = attribute.nodeValue;
+            }
+        }
+    } 
+    else if (xml.nodeType == 3) { 
+        object = xml.nodeValue;
+    } 
+    else if (xml.nodeType == 9) { 
+        isRoot = true;
+    }
+
+    if (xml.hasChildNodes()) {
+        for(var i = 0; i < xml.childNodes.length; i++) {
+            let item = xml.childNodes.item(i);
+            let nodeName = item.nodeName;
+
+            if (typeof(object[nodeName]) == "undefined") {
+                if (nodeName == "#cdata-section") {
+                    object = item.nodeValue;
+                } 
+                else if (nodeName == "#text") { 
+                    if (item.childNodes.length < 1) {
+                        object = item.nodeValue;
+                    } 
+                    else {
+                        object[nodeName] = convertirXmlEnObjeto(item);
+                    }
+                } 
+                else {
+                    if (isRoot) {
+                        object = convertirXmlEnObjeto(item);
+                    } 
+                    else {
+                        object[nodeName] = convertirXmlEnObjeto(item);
+                    }
+                }
+            } 
+            else {
+                if (typeof(object[nodeName].push) == "undefined") {
+                    let attributeValue = object[nodeName];
+                    object[nodeName] = new Array();
+                    object[nodeName].push(attributeValue);
+                }
+
+                object[nodeName].push(convertirXmlEnObjeto(item));
+                }
+            }
+        }
+    
+        return object;  
+}
