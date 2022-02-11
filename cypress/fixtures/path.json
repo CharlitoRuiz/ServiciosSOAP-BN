@@ -2,7 +2,7 @@
   "convenios": {
     "path": "Convenios/Convenios"
   },
-  "cuentasFavoritas": {
+  "cuentasFavoritas":{
     "path": "CuentasFavoritas/CuentasFavoritas"
   }
 }
