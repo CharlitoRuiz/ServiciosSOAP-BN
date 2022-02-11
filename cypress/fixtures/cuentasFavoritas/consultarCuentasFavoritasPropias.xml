@@ -1,0 +1,25 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sn="http://www.bncr.fi.cr/soa/SN_ConsultaCuentasFavoritasPropias">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sn:solicitud>
+         <sn:encabezado>
+            <sn:fechaHoraConsumo>2020-01-26T19:15:54.294Z</sn:fechaHoraConsumo>
+            <sn:canalConsumidor>IBP</sn:canalConsumidor>
+            <sn:usuarioConsumidor>113720104</sn:usuarioConsumidor>
+            <sn:direccionIPConsumo>?</sn:direccionIPConsumo>
+            <sn:nombreServicio>?</sn:nombreServicio>
+         </sn:encabezado>
+         <sn:cuerpo>
+            <sn:entradaServicio>
+               <sn:Cliente>428402</sn:Cliente>
+               <sn:tipoIdCliente>1</sn:tipoIdCliente>
+               <sn:idCliente>113720104</sn:idCliente>
+               <sn:estadoCuenta>1</sn:estadoCuenta>
+               <sn:propias>N</sn:propias>
+               <sn:tipoCuenta>BNCR</sn:tipoCuenta>
+               <sn:filtro>?</sn:filtro>
+            </sn:entradaServicio>
+         </sn:cuerpo>
+      </sn:solicitud>
+   </soapenv:Body>
+</soapenv:Envelope>
