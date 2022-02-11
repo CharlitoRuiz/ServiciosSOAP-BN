@@ -1,5 +1,8 @@
 {
   "convenios": {
     "path": "Convenios/Convenios"
+  },
+  "cuentasFavoritas":{
+    "path": "CuentasFavoritas/CuentasFavoritas"
   }
 }
