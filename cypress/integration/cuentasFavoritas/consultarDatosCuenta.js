@@ -37,7 +37,6 @@ describe('Cuentas favoritas', ()  => {
 
                     expect(response.status).eq(200)
                     assert.equal(response.headers['content-type'], 'text/xml; charset=utf-8')
-                
                 })
             })
         })
