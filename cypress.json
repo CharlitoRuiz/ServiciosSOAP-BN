@@ -1,5 +1,25 @@
 {
     "baseUrl": "http://10.0.232.229:80/ServiciosBNCR/ProxyServices/",
     "video": true,
-    "screenshotOnRunFailure": true 
+    "screenshotOnRunFailure": true,
+    "env": {
+      "db1": {
+        "server": "10.0.232.72",
+        "authentication": {
+          "type": "default",
+          "options": {
+            "userName": "usrpia",
+            "password": "usrpia01"
+          }
+        },
+        "options": {
+          "port": 1433,
+          "database": "navigatr24_sample_db",
+          "encrypt": true,
+          "rowCollectionOnRequestCompletion": true,
+          "trustServerCertificate": true,
+          "validateBulkLoadParameters": true
+        }
+      }
+    }
 }

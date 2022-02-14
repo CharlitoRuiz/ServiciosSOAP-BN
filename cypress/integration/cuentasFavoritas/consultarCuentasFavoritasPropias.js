@@ -5,7 +5,31 @@ describe('Cuentas Favoritas', ()  => {
     it('Consultar Cuentas Favoritas Propias', () => {
 
         let path = cuentasFavoritas.cuentasFavoritas.path
+        let BDlist = []
+
         cy.fixture('../fixtures/cuentasFavoritas/consultarCuentasFavoritasPropias.xml').then((body) => {
+            let xmlString = body;
+            let parser = new DOMParser();
+            let xml = parser.parseFromString(xmlString, "application/xml");
+            let numeroCliente = xml.getElementsByTagName("sn:Cliente")[0].childNodes[0].nodeValue;
+
+        cy.sqlServerDB(`SELECT TOP 1000 * FROM [navigatr24_sample_db].[dbo].[IB_CUENTA_ALTERNA] where INUCLIEN = ` + numeroCliente).then((result) => {
+            // Si solo es una fila de la tabla
+             if (result.length == 18){
+                 BDlist.push(result[2].replace(/ /g,'') + result[3].replace(/ /g,'') + result[4].replace(/ /g,'') + result[5].replace(/ /g,'')
+                 + result[6])
+                 BDlist.sort()
+            
+            // si son mas de una fila de la tabla
+            } else{
+                result.forEach(function(value, index, array) {
+                    BDlist.push(result[index][2].replace(/ /g,'') + result[index][3].replace(/ /g,'') + result[index][4].replace(/ /g,'') + result[index][5].replace(/ /g,'')
+                    + result[index][6])
+                    BDlist.sort()
+                });
+            } 
+
+        })
             cy.postMethod(path, body).then((response) => {
 
                 let xmlString = response.body;
@@ -14,12 +38,20 @@ describe('Cuentas Favoritas', ()  => {
                 
                     cy.convertToJson(xml).then((json) =>{
                         expect(json).not.to.be.empty
-                        expect(json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:cuentasIB"]["sn:RowSet0_Row"][1]["sn:Cuenta"]).equal('100-01-208-000084-2')
-                        expect(json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:cuentasIB"]["sn:RowSet0_Row"][1]["sn:Secuencia"]).equal('17368876')
-                        expect(json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:cuentasIB"]["sn:RowSet0_Row"][1]["sn:CtaNombre"]).equal('100-01-208-000084-2  JOSETH CASTRO JIMENEZ')
-                        expect(json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:cuentasIB"]["sn:RowSet0_Row"][1]["sn:ACTIVADA"]).equal('2021-08-18T12:01:51.917-06:00')
-                        expect(json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:cuentasIB"]["sn:RowSet0_Row"][1]["sn:Correo"]).equal("jcastroj@bncr.fi.cr")
-                        expect(json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:cuentasIB"]["sn:RowSet0_Row"][1]["sn:esPropia"]).equal('N')
+
+                        // si es mas de una fila de la tabla
+                        if (json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:cuentasIB"]["sn:RowSet0_Row"].length > 1) {
+                            json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:cuentasIB"]["sn:RowSet0_Row"].forEach(function(value, index, array) {
+                                expect(json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:cuentasIB"]["sn:RowSet0_Row"][index]["sn:Cuenta"].replace(/-/g,''))
+                                .equals(BDlist[index])
+                                expect(json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:cuentasIB"]["sn:RowSet0_Row"][index]["sn:esPropia"]).equal('N')
+                            });
+                        }
+                        // si es solo una fila de la tabla
+                        else{
+                            expect(json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:cuentasIB"]["sn:RowSet0_Row"]["sn:Cuenta"].replace(/-/g,''))
+                            .equals(BDlist[0])
+                        }
                         expect(json["env:Body"]["sn:respuesta"]["xmlns:sn"]).equals('http://www.bncr.fi.cr/soa/SN_ConsultaCuentasFavoritasPropias')
                         expect(json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:resultado"]["sn:estado"]).equals('0')
                         expect(json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:resultado"]["sn:mensaje"]).equals('Transacción Completa')

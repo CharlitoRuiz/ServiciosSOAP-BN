@@ -5,7 +5,7 @@
          <sn:encabezado>
             <sn:fechaHoraConsumo>2020-01-26T19:15:54.294Z</sn:fechaHoraConsumo>
             <sn:canalConsumidor>IBP</sn:canalConsumidor>
-            <sn:usuarioConsumidor>503260547</sn:usuarioConsumidor>
+            <sn:usuarioConsumidor>113720104</sn:usuarioConsumidor>
             <sn:direccionIPConsumo>?</sn:direccionIPConsumo>
             <sn:nombreServicio>?</sn:nombreServicio>
          </sn:encabezado>
@@ -14,11 +14,11 @@
             <!--Optional:-->
             <sn:entradaServicio>
                <!--Optional:-->
-               <sn:numeroCliente>428402</sn:numeroCliente>
+               <sn:numeroCliente>1</sn:numeroCliente>
                <!--Optional:-->
-               <sn:codigoEmpresa>3</sn:codigoEmpresa>
+               <sn:codigoEmpresa>1</sn:codigoEmpresa>
                <!--Optional:-->
-               <sn:codigoConvenio>1</sn:codigoConvenio>
+               <sn:codigoConvenio>5</sn:codigoConvenio>
                <!--Optional:-->
                <sn:producto>CNV</sn:producto>
             </sn:entradaServicio>

@@ -17,6 +17,32 @@
  */
 // eslint-disable-next-line no-unused-vars
 module.exports = (on, config) => {
-  // `on` is used to hook into various events Cypress emits
-  // `config` is the resolved Cypress config
+
+  on('task', {
+    sqlServerDB: sql => {
+      return execSQL(sql, config.env.db1)
+    },
+  })
+
+  return config
 }
+
+const tedious = require('tedious')
+function execSQL(sql, config) {
+const connection = new tedious.Connection(config);
+return new Promise((res, rej) => {
+  connection.on('connect', err => {
+    if (err) {
+      rej(err);
+    }
+
+    const request = new tedious.Request(sql, function (err, rowCount, rows) {
+      return err ? rej(err) : res(rows);
+    });
+
+    connection.execSql(request);
+  });
+})
+}
+
+
