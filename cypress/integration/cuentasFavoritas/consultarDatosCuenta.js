@@ -31,7 +31,6 @@ describe('Cuentas favoritas', ()  => {
                     json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:items"]["sn:item"]["sn:digitoVerificador"]
                     
                     expect(numeroCuenta).eq(numeroCuentaResponse)
-
                     expect(json["env:Body"]["sn:respuesta"]["xmlns:sn"]).equals('http://www.bncr.fi.cr/soa/SN_ConsultaDatosCuenta')
 
                     })

@@ -19,13 +19,13 @@
                      <!--Optional:-->
                      <sn:Producto>100</sn:Producto>
                      <!--Optional:-->
-                     <sn:Moneda>02</sn:Moneda>
+                     <sn:Moneda>01</sn:Moneda>
                      <!--Optional:-->
-                     <sn:Oficina>000</sn:Oficina>
+                     <sn:Oficina>208</sn:Oficina>
                      <!--Optional:-->
-                     <sn:numeroCuenta>620666</sn:numeroCuenta>
+                     <sn:numeroCuenta>000084</sn:numeroCuenta>
                      <!--Optional:-->
-                     <sn:digitoVerificador>0</sn:digitoVerificador>
+                     <sn:digitoVerificador>2</sn:digitoVerificador>
                      <!--Optional:-->
                      <sn:Estado>?</sn:Estado>
                      <!--Optional:-->
