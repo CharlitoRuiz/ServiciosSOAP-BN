@@ -1,0 +1,62 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sn="http://www.bncr.fi.cr/soa/SN_InsercionCuentasFavoritas">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sn:solicitud>
+         <sn:encabezado>
+            <sn:fechaHoraConsumo>2020-01-26T19:15:54.294Z</sn:fechaHoraConsumo>
+            <sn:canalConsumidor>IBP</sn:canalConsumidor>
+            <sn:usuarioConsumidor>113720104</sn:usuarioConsumidor>
+            <sn:direccionIPConsumo>?</sn:direccionIPConsumo>
+            <sn:nombreServicio>?</sn:nombreServicio>
+         </sn:encabezado>
+         <sn:cuerpo>
+            <sn:entradaServicio>
+               <sn:tipoIdCliente>1</sn:tipoIdCliente>
+               <sn:idCliente>113720104</sn:idCliente>
+               <sn:numeroCliente>428402</sn:numeroCliente>
+               <sn:nombreCliente>CALOS RUIZ CAMPOS</sn:nombreCliente>
+               <sn:ispec>IBACF</sn:ispec>
+               <sn:ipCliente>10.0.238.152</sn:ipCliente>
+               <sn:modoValidar>U</sn:modoValidar>
+               <sn:accionPortwise>SWToken</sn:accionPortwise>
+               <sn:OTP>?</sn:OTP>
+               <sn:items>
+                  <!--Zero or more repetitions:-->
+                  <sn:item>
+                     <!--Optional:-->
+                     <sn:Banco>Banco Nacional</sn:Banco>
+                     <!--Optional:-->
+                     <sn:Producto>100</sn:Producto>
+                     <!--Optional:-->
+                     <sn:Moneda>01</sn:Moneda>
+                     <!--Optional:-->
+                     <sn:Oficina>208</sn:Oficina>
+                     <!--Optional:-->
+                     <sn:numeroCuenta>000084</sn:numeroCuenta>
+                     <!--Optional:-->
+                     <sn:digitoVerificador>2</sn:digitoVerificador>
+                     <!--Optional:-->
+                     <sn:tipoRelacion>?</sn:tipoRelacion>
+                     <!--Optional:-->
+                     <sn:cuentaCredito>?</sn:cuentaCredito>
+                     <sn:tipoIdBeneficiario>1</sn:tipoIdBeneficiario>
+                     <!--Optional:-->
+                     <sn:idBeneficiario>504080074</sn:idBeneficiario>
+                     <!--Optional:-->
+                     <sn:nombreBeneficiario>JOSETH CASTRO JIMENEZ</sn:nombreBeneficiario>
+                     <sn:tipoCuenta>0</sn:tipoCuenta>
+                     <!--Optional:-->
+                     <sn:Correo>cruizca@bndesarrollo.com</sn:Correo>
+                     <!--Optional:-->
+                     <sn:estadoCuenta>0</sn:estadoCuenta>
+                     <!--Optional:-->
+                     <sn:fechaHabilitar>16/02/2022 08:40:16</sn:fechaHabilitar>
+                     <!--Optional:-->
+                     <sn:numeroCuentaIBAN>CR32015120810010000840</sn:numeroCuentaIBAN>
+                  </sn:item>
+               </sn:items>
+            </sn:entradaServicio>
+         </sn:cuerpo>
+      </sn:solicitud>
+   </soapenv:Body>
+</soapenv:Envelope>
