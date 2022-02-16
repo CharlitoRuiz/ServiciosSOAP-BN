@@ -1,0 +1,44 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sn="http://www.bncr.fi.cr/soa/SN_EliminaCuentasFavoritas">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sn:solicitud>
+         <sn:encabezado>
+            <sn:fechaHoraConsumo>2020-01-26T19:15:54.294Z</sn:fechaHoraConsumo>
+            <sn:canalConsumidor>IBP</sn:canalConsumidor>
+            <sn:usuarioConsumidor>113720104</sn:usuarioConsumidor>
+            <sn:direccionIPConsumo>?</sn:direccionIPConsumo>
+            <sn:nombreServicio>?</sn:nombreServicio>
+         </sn:encabezado>
+         <sn:cuerpo>
+            <sn:entradaServicio>
+               <sn:tipoIdCliente>1</sn:tipoIdCliente>
+               <sn:idCliente>107320788</sn:idCliente>
+               <sn:numeroCliente>1</sn:numeroCliente>
+               <sn:ispec>IBTFB</sn:ispec>
+               <sn:accionIspec>4</sn:accionIspec>
+               <sn:items>
+                  <!--Zero or more repetitions:-->
+                  <sn:item>
+                     <!--Optional:-->
+                     <sn:producto>200</sn:producto>
+                     <!--Optional:-->
+                     <sn:moneda>02</sn:moneda>
+                     <!--Optional:-->
+                     <sn:oficina>060</sn:oficina>
+                     <!--Optional:-->
+                     <sn:numeroCuenta>004103</sn:numeroCuenta>
+                     <!--Optional:-->
+                     <sn:digitoVerificador>2</sn:digitoVerificador>
+                     <!--Optional:-->
+                     <sn:tipoRelacion>0</sn:tipoRelacion>
+                     <!--Optional:-->
+                     <sn:cuentaCredito>?</sn:cuentaCredito>
+                     <!--Optional:-->
+                     <sn:numeroCuentaIBAN>?</sn:numeroCuentaIBAN>
+                  </sn:item>
+               </sn:items>
+            </sn:entradaServicio>
+         </sn:cuerpo>
+      </sn:solicitud>
+   </soapenv:Body>
+</soapenv:Envelope>
