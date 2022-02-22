@@ -1,0 +1,31 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sn="http://www.bncr.fi.cr/soa/SN_ConsultaSaldosCorporativo">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sn:solicitud>
+         <sn:encabezado>
+            <sn:fechaHoraConsumo>2020-01-26T19:15:54.294Z</sn:fechaHoraConsumo>
+            <sn:canalConsumidor>IBC</sn:canalConsumidor>
+            <sn:usuarioConsumidor>113720104</sn:usuarioConsumidor>
+            <sn:direccionIPConsumo>?</sn:direccionIPConsumo>
+            <sn:nombreServicio>?</sn:nombreServicio>
+         </sn:encabezado>
+         <!--Optional:-->
+         <sn:cuerpo>
+            <sn:entradaServicio>
+               <!--Optional:-->
+               <sn:oficina>000</sn:oficina>
+               <!--Optional:-->
+               <sn:tipoIdentificacionCliente>1</sn:tipoIdentificacionCliente>
+               <!--Optional:-->
+               <sn:identificacionCliente>109480945</sn:identificacionCliente>
+               <!--Optional:-->
+               <sn:identificacionClienteAut>113720104</sn:identificacionClienteAut>
+               <!--Optional:-->
+               <sn:numeroCliente>5305</sn:numeroCliente>
+               <!--Optional:-->
+               <sn:consultarPreferencias>?</sn:consultarPreferencias>
+            </sn:entradaServicio>
+         </sn:cuerpo>
+      </sn:solicitud>
+   </soapenv:Body>
+</soapenv:Envelope>
