@@ -1,16 +1,13 @@
 /// <reference types="cypress" />
-const saldos = require('../../fixtures/path.json')
+const movimientosIBC = require('../../fixtures/path.json')
 
 
-describe('movimientos', () => {
+describe('Consultar Movimientos', () => {
     it('Consultar Movimientos Corporativo', () => {
 
-        let path = saldos.saldos.path
+        let path = movimientosIBC.consultaMovimientos.path
 
-        cy.fixture('../fixtures/movimientos/consultarMovimientosCorporativo.xml').then((body) => {
-            let xmlString = body;
-            let parser = new DOMParser();
-            let xml = parser.parseFromString(xmlString, "application/xml");
+        cy.fixture('../fixtures/consultaMovimientos/consultarMovimientosCorporativo.xml').then((body) => {
             
         cy.postMethod(path, body).then((response) => {
                 

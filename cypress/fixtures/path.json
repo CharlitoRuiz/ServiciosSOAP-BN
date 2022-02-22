@@ -5,7 +5,7 @@
   "cuentasFavoritas":{
     "path": "CuentasFavoritas/CuentasFavoritas"
   },
-  "saldos":{
+  "consultaMovimientos":{
     "path": "ConsultaMovimientos/Consultas"
   }
 }
