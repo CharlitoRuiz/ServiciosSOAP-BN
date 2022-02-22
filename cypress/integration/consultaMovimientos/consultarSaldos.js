@@ -1,11 +1,11 @@
 /// <reference types="cypress" />
 const saldos = require('../../fixtures/path.json')
 
-describe('Movimientos', () => {
-    it('Consultar Movimientos IBP', () => {
+describe('Consultar Saldos', () => {
+    it('Consultar Saldos IBP', () => {
 
-        let path = saldos.saldos.path
-        cy.fixture('../fixtures/saldos/consultarMovimientos.xml').then((body) => {
+        let path = saldos.consultaMovimientos.path
+        cy.fixture('../fixtures/consultaMovimientos/consultarSaldos.xml').then((body) => {
             cy.postMethod(path, body).then((response) => {
                 
                 let xmlString = response.body;
@@ -15,7 +15,8 @@ describe('Movimientos', () => {
                     cy.convertToJson(xml).then((json) =>{
                        
                         expect(json).not.to.be.empty
-                        expect(json["soapenv:Body"]["xmlns:sn"]).equals('http://www.bncr.fi.cr/soa/SN_ConsultaMovimientos')
+                        expect(json["env:Body"]["sn:respuesta"]["xmlns:sn"]).equals('http://www.bncr.fi.cr/soa/SN_ConsultaSaldos')
+                        expect(json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:resultado"]["sn:estado"]).equals('0')
                     })
                 
                 expect(response.status).eq(200)

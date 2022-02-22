@@ -18,8 +18,8 @@
                <sn:ispec>IBACF</sn:ispec>
                <sn:ipCliente>10.0.238.152</sn:ipCliente>
                <sn:modoValidar>U</sn:modoValidar>
-               <sn:accionPortwise>SWToken</sn:accionPortwise>
-               <sn:OTP>?</sn:OTP>
+               <sn:accionPortwise>Certificados</sn:accionPortwise>
+               <sn:OTP></sn:OTP>
                <sn:items>
                   <!--Zero or more repetitions:-->
                   <sn:item>
@@ -36,9 +36,9 @@
                      <!--Optional:-->
                      <sn:digitoVerificador>2</sn:digitoVerificador>
                      <!--Optional:-->
-                     <sn:tipoRelacion>?</sn:tipoRelacion>
+                     <sn:tipoRelacion> </sn:tipoRelacion>
                      <!--Optional:-->
-                     <sn:cuentaCredito>?</sn:cuentaCredito>
+                     <sn:cuentaCredito> </sn:cuentaCredito>
                      <sn:tipoIdBeneficiario>1</sn:tipoIdBeneficiario>
                      <!--Optional:-->
                      <sn:idBeneficiario>504080074</sn:idBeneficiario>
@@ -50,7 +50,7 @@
                      <!--Optional:-->
                      <sn:estadoCuenta>0</sn:estadoCuenta>
                      <!--Optional:-->
-                     <sn:fechaHabilitar>16/02/2022 08:40:16</sn:fechaHabilitar>
+                     <sn:fechaHabilitar>22/02/2022 16:55:16</sn:fechaHabilitar>
                      <!--Optional:-->
                      <sn:numeroCuentaIBAN>CR32015120810010000840</sn:numeroCuentaIBAN>
                   </sn:item>

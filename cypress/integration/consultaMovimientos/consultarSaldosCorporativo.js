@@ -2,19 +2,14 @@
 const saldos = require('../../fixtures/path.json')
 
 
-describe('saldos', () => {
+describe('Cosultar Saldos', () => {
     it('Consultar Saldos Corporativo', () => {
 
-        let path = saldos.saldos.path
-        let BDlist = []
+        let path = saldos.consultaMovimientos.path
 
-        cy.fixture('../fixtures/saldos/consultarSaldosCorporativo.xml').then((body) => {
-            let xmlString = body;
-            let parser = new DOMParser();
-            let xml = parser.parseFromString(xmlString, "application/xml");
-            
+        cy.fixture('../fixtures/consultaMovimientos/consultarSaldosCorporativo.xml').then((body) => {
 
-        cy.postMethod(path, body).then((response) => {
+            cy.postMethod(path, body).then((response) => {
                 
             let xmlString = response.body;
             let parser = new DOMParser();
