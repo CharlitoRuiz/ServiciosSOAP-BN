@@ -4,5 +4,8 @@
   },
   "cuentasFavoritas":{
     "path": "CuentasFavoritas/CuentasFavoritas"
+  },
+  "saldos":{
+    "path": "ConsultaMovimientos/Consultas"
   }
 }
