@@ -18,7 +18,7 @@ describe('Consultar Movimientos', () => {
             cy.convertToJson(xml).then((json) =>{
                 expect(json).not.to.be.empty
                 
-                expect(json["soapenv:Body"]["xmlns:sn"]).equals('http://www.bncr.fi.cr/soa/SN_ConsultaMovimientos')
+                expect(json["soapenv:Body"]["xmlns:sn"]).equals('http://www.bncr.fi.cr/soa/SN_ConsultaMovimientosCorporativo')
             
             })
                 expect(response.status).eq(200)
