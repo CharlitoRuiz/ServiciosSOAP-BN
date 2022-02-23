@@ -1,10 +1,10 @@
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sn="http://www.bncr.fi.cr/soa/SN_ConsultaMovimientos">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sn="http://www.bncr.fi.cr/soa/SN_ConsultaMovimientosCorporativo">
    <soapenv:Header/>
    <soapenv:Body>
       <sn:solicitud>
          <sn:encabezado>
             <sn:fechaHoraConsumo>2020-01-26T19:15:54.294Z</sn:fechaHoraConsumo>
-            <sn:canalConsumidor>IBP</sn:canalConsumidor>
+            <sn:canalConsumidor>IBC</sn:canalConsumidor>
             <sn:usuarioConsumidor>113720104</sn:usuarioConsumidor>
             <sn:direccionIPConsumo>?</sn:direccionIPConsumo>
             <sn:nombreServicio>?</sn:nombreServicio>
@@ -12,12 +12,13 @@
          <sn:cuerpo>
             <sn:entradaServicio>
                <sn:tipoIdentificacionCliente>1</sn:tipoIdentificacionCliente>
-               <sn:identificacionCliente>113720104</sn:identificacionCliente>
+               <sn:identificacionCliente>109480945</sn:identificacionCliente>
+               <sn:identificacionClienteAut>113720104</sn:identificacionClienteAut>
                <sn:numeroProducto>100</sn:numeroProducto>
                <sn:moneda>01</sn:moneda>
-               <sn:numeroOficina>080</sn:numeroOficina>
-               <sn:numeroCuenta>100015</sn:numeroCuenta>
-               <sn:digitoVerificacion>3</sn:digitoVerificacion>
+               <sn:numeroOficina>000</sn:numeroOficina>
+               <sn:numeroCuenta>215879</sn:numeroCuenta>
+               <sn:digitoVerificacion>8</sn:digitoVerificacion>
                <sn:fechaInicio>2020-01-26T19:15:54.294Z</sn:fechaInicio>
                <sn:fechaFinal>2020-02-21T19:15:54.294Z</sn:fechaFinal>
                <sn:visualizarDepositante>A</sn:visualizarDepositante>
@@ -27,7 +28,7 @@
                <sn:signoMonto>mayor</sn:signoMonto>
                <sn:numeroDocumento>0</sn:numeroDocumento>
                <sn:indicadorOrdenamiento>D</sn:indicadorOrdenamiento>
-               <sn:numeroCliente>428402</sn:numeroCliente>
+               <sn:numeroCliente>5305</sn:numeroCliente>
                <sn:indexCuenta>0</sn:indexCuenta>
                <sn:checkMostrar>N</sn:checkMostrar>
                <sn:preferencias>?</sn:preferencias>
