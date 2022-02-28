@@ -1,0 +1,47 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sn="http://www.bncr.fi.cr/soa/SN_ConectividadConsulta">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sn:solicitud>
+         <sn:encabezado>
+            <sn:fechaHoraConsumo>2020-01-26T19:15:54.294Z</sn:fechaHoraConsumo>
+            <sn:canalConsumidor>IBP</sn:canalConsumidor>
+            <sn:usuarioConsumidor>113720104</sn:usuarioConsumidor>
+            <sn:direccionIPConsumo>?</sn:direccionIPConsumo>
+            <sn:nombreServicio>?</sn:nombreServicio>
+         </sn:encabezado>
+         <sn:cuerpo>
+            <sn:entradaServicio>
+               <sn:datosConsulta>
+                  <!--Zero or more repetitions:-->
+                  <sn:datoConsulta>
+                     <!--Optional:-->
+                     <sn:tipoCanal>6</sn:tipoCanal>
+                     <!--Optional:-->
+                     <sn:esMunicipalidad>2</sn:esMunicipalidad>
+                     <!--Optional:-->
+                     <sn:codigoUsuario>BNINTBNK</sn:codigoUsuario>
+                     <!--Optional:-->
+                     <sn:claveUsuario> </sn:claveUsuario>
+                     <!--Optional:-->
+                     <sn:codigoAgencia>228</sn:codigoAgencia>
+                     <!--Optional:-->
+                     <sn:empresa>58</sn:empresa>
+                     <!--Optional:-->
+                     <sn:convenio>1</sn:convenio>
+                     <!--Optional:-->
+                     <sn:tipoLlaveAcceso>105</sn:tipoLlaveAcceso>
+                     <!--Optional:-->
+                     <sn:llaveAcceso>c0003</sn:llaveAcceso>
+                     <!--Optional:-->
+                     <sn:identificacion>?</sn:identificacion>
+                     <!--Optional:-->
+                     <sn:numeroCuotas>?</sn:numeroCuotas>
+                     <!--Optional:-->
+                     <sn:periodos>?</sn:periodos>
+                  </sn:datoConsulta>
+               </sn:datosConsulta>
+            </sn:entradaServicio>
+         </sn:cuerpo>
+      </sn:solicitud>
+   </soapenv:Body>
+</soapenv:Envelope>
