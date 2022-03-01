@@ -29,7 +29,7 @@ describe('Cuentas Favoritas', () => {
                     if (result.length == 18){
                         BDlist.push(result[2].replace(/ /g,'') + result[3].replace(/ /g,'') + result[4].replace(/ /g,'') + result[5].replace(/ /g,'')
                         + result[6])
-                        expect(BDlist).not.includes(numeroCuenta)
+                        expect(BDlist[0]).not.includes(numeroCuenta)
 
                     // si son mas de una fila de la tabla
                     } else{
