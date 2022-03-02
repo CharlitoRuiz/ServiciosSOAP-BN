@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 const cuentasFavoritas = require('../../fixtures/path.json')
 
-describe('Cuentas favoritas', ()  => {
+describe('Cuentas Favoritas', ()  => {
     it('Consultar Datos Cuenta', () => {
 
         let path = cuentasFavoritas.cuentasFavoritas.path

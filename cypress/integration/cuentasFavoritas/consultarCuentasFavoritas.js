@@ -1,7 +1,6 @@
 /// <reference types="cypress" />
 const cuentasFavoritas = require('../../fixtures/path.json')
 
-
 describe('Cuentas Favoritas', () => {
     it('Consultar Cuentas Favoritas', () => {
 
@@ -16,7 +15,6 @@ describe('Cuentas Favoritas', () => {
                     cy.convertToJson(xml).then((json) =>{
                        
                         expect(json).not.to.be.empty
-                        expect(json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:cuentasIB"]["sn:RowSet0_Row"][0]["sn:Cuenta"].replace(/ /g,'')).equal('100-01-080-100015-3')
                         expect(json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:resultado"]["sn:estado"]).equals('0')
                         expect(json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:resultado"]["sn:mensaje"]).equals('Transacción Completa')
                        

@@ -1,8 +1,7 @@
 /// <reference types="cypress" />
 const saldos = require('../../fixtures/path.json')
 
-
-describe('Cosultar Saldos', () => {
+describe('Consultar Saldos', () => {
     it('Consultar Saldos Corporativo', () => {
 
         let path = saldos.consultaMovimientos.path
