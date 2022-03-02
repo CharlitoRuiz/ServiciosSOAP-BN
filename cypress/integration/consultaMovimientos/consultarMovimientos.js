@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 const movimientosIBP = require('../../fixtures/path.json')
 
-describe('Consulta Movimiento', () => {
+describe('Consultar Movimientos', () => {
     it('Consultar Movimientos IBP', () => {
 
         let path = movimientosIBP.consultaMovimientos.path

@@ -1,9 +1,19 @@
 {
   "devDependencies": {
+    "@shelex/cypress-allure-plugin": "^2.26.5",
+    "allure-commandline": "^2.17.2",
     "cypress": "^9.4.1"
   },
   "dependencies": {
     "coffeescript": "^2.5.1",
     "tedious": "^8.3.0"
+  },
+  "scripts": {
+    "cy:run": "cypress run --env allure=true --headed",
+    "allure:report": "allure generate --clean -o allure-report",
+    "allure:clear": "if exist allure-results rmdir /q /s allure-results",
+    "pretest": "npm run allure:clear",
+    "test": "npm run cy:run || npm run posttest",
+    "posttest": "npm run allure:report"
   }
 }
