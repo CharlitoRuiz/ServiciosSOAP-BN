@@ -1,6 +1,6 @@
 {
     "baseUrl": "http://10.0.232.229:80/ServiciosBNCR/ProxyServices/",
-    "video": true,
+    "video": false,
     "screenshotOnRunFailure": true,
     "env": {
       "db1": {
