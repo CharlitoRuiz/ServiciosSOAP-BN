@@ -1,0 +1,88 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sn="http://www.bncr.fi.cr/soa/SN_PagoPrestamo">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sn:solicitud>
+         <sn:encabezado>
+            <sn:fechaHoraConsumo>2020-01-26T19:15:54.294Z</sn:fechaHoraConsumo>
+            <sn:canalConsumidor>IBP</sn:canalConsumidor>
+            <sn:usuarioConsumidor>113720104</sn:usuarioConsumidor>
+            <sn:direccionIPConsumo>?</sn:direccionIPConsumo>
+            <sn:nombreServicio>?</sn:nombreServicio>
+         </sn:encabezado>
+         <sn:cuerpo>
+            <sn:entradaServicio>
+               <!--Optional:-->
+               <sn:transaccion>PRESTAMOS_SIACC</sn:transaccion>
+               <!--Optional:-->
+               <sn:subTransaccion>1</sn:subTransaccion>
+               <!--Optional:-->
+               <sn:oficina>228</sn:oficina>
+               <!--Optional:-->
+               <sn:monedaServicio>01</sn:monedaServicio>
+               <!--Optional:-->
+               <sn:montoTransaccion>10.32</sn:montoTransaccion>
+               <!--Optional:-->
+               <sn:monedaTransaccion>01</sn:monedaTransaccion>
+               <!--Optional:-->
+               <sn:tipoIdentificacion>1</sn:tipoIdentificacion>
+               <!--Optional:-->
+               <sn:numeroIdentificacion>113720104</sn:numeroIdentificacion>
+               <!--Optional:-->
+               <sn:cuentaClienteOrigen></sn:cuentaClienteOrigen>
+               <!--Optional:-->
+               <sn:productoOrigen>100</sn:productoOrigen>
+               <!--Optional:-->
+               <sn:monedaOrigen>01</sn:monedaOrigen>
+               <!--Optional:-->
+               <sn:oficinaOrigen>080</sn:oficinaOrigen>
+               <!--Optional:-->
+               <sn:numeroCuentaOrigen>100015</sn:numeroCuentaOrigen>
+               <!--Optional:-->
+               <sn:digitoVerificadorOrigen>3</sn:digitoVerificadorOrigen>
+               <!--Optional:-->
+               <sn:nombreCuentaOrigen>CARLOS RUIZ CAMPOS CR34015108010011000156</sn:nombreCuentaOrigen>
+               <!--Optional:-->
+               <sn:detalleMovimiento>Pago préstamo 001-083-001-30575534</sn:detalleMovimiento>
+               <!--Optional:-->
+               <sn:nombreDepositante>RUIZ CAMPOS CARLOS LUIS</sn:nombreDepositante>
+               <!--Optional:-->
+               <sn:motivoCompraVenta>00</sn:motivoCompraVenta>
+               <!--Optional:-->
+               <sn:codigoEmpresa>1</sn:codigoEmpresa>
+               <!--Optional:-->
+               <sn:codigoAgencia>83</sn:codigoAgencia>
+               <!--Optional:-->
+               <sn:codigoSubAplicacion>1</sn:codigoSubAplicacion>
+               <!--Optional:-->
+               <sn:numeroPrestamo>30575534</sn:numeroPrestamo>
+               <!--Optional:-->
+               <sn:tipoPago>E</sn:tipoPago>
+               <!--Optional:-->
+               <sn:cantCuotas>0</sn:cantCuotas>
+               <!--Optional:-->
+               <sn:numeroCliente>428402</sn:numeroCliente>
+               <!--Optional:-->
+               <sn:nombreDeudor>CARLOS LUIS RUIZ CAMPOS</sn:nombreDeudor>
+               <!--Optional:-->
+               <sn:interesDesde>01-07-2020</sn:interesDesde>
+               <!--Optional:-->
+               <sn:interesHasta>01-08-2020</sn:interesHasta>
+               <!--Optional:-->
+               <sn:motivoCancela>0</sn:motivoCancela>
+               <!--Optional:-->
+               <sn:cuentaPrestamoIban>CR78 0151 1063 4000 0003 64</sn:cuentaPrestamoIban>
+               <!--Optional:-->
+               <sn:cuentaOrigenIban>CR34 0151 0801 0011 0001 56</sn:cuentaOrigenIban>
+               <!--Optional:-->
+               <sn:formatoCompobanteCuentaDebitada>A</sn:formatoCompobanteCuentaDebitada>
+               <!--Optional:-->
+               <sn:existeFirma>N</sn:existeFirma>
+               <!--Optional:-->
+               <sn:resultadoFirma></sn:resultadoFirma>
+               <!--Optional:-->
+               <sn:idReferenciaFirma>0</sn:idReferenciaFirma>
+            </sn:entradaServicio>
+         </sn:cuerpo>
+      </sn:solicitud>
+   </soapenv:Body>
+</soapenv:Envelope>
