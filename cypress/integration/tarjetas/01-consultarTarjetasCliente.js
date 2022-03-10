@@ -16,6 +16,19 @@ describe('Tarjetas', ()  => {
                 
                     cy.convertToJson(xml).then((json) =>{
                         expect(json).not.to.be.empty
+
+                        if (json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:tarjetas"]["sn:tarjeta"].length > 1) {
+                            json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:tarjetas"]["sn:tarjeta"].forEach(function(value, index, array) {
+                                expect(json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:tarjetas"]["sn:tarjeta"][index]["sn:numeroTarjeta"])
+                                .length(19)
+                            });
+                        }
+                        
+                        else{
+                            expect(json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:tarjetas"]["sn:tarjeta"][0]["sn:numeroTarjeta"])
+                            .length(19)
+                        }
+                        
                         expect(json["env:Body"]["sn:respuesta"]["xmlns:sn"]).equals('http://www.bncr.fi.cr/soa/SN_ConsultaDeTarjetasCliente')
                         expect(json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:resultado"]["sn:estado"]).equals('00')
                         expect(json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:resultado"]["sn:mensaje"]).equals('Transacción completa')
