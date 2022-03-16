@@ -1,0 +1,29 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sn="http://www.bncr.fi.cr/soa/SN_ConsultaLineas" xmlns:esq="http://www.bncr.fi.cr/soa/EsquemasComunes">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sn:solicitud>
+         <!--Optional:-->
+         <sn:encabezado>
+            <esq:fechaHoraConsumo>2020-01-26T19:15:54.294Z</esq:fechaHoraConsumo>
+            <esq:canalConsumidor>IBP</esq:canalConsumidor>
+            <esq:usuarioConsumidor>113720104</esq:usuarioConsumidor>
+            <esq:direccionIPConsumo>?</esq:direccionIPConsumo>
+            <esq:nombreServicio>?</esq:nombreServicio>
+         </sn:encabezado>
+         <!--Optional:-->
+         <sn:cuerpo>
+            <!--Optional:-->
+            <sn:entradaServicio>
+               <!--Optional:-->
+               <sn:tipoIdentificacion>1</sn:tipoIdentificacion>
+               <!--Optional:-->
+               <sn:numeroIdentificacion>6-0421-0368</sn:numeroIdentificacion>
+               <!--Optional:-->
+               <sn:esDesembolsos>S</sn:esDesembolsos>
+               <!--Optional:-->
+               <sn:numeroCliente>939946</sn:numeroCliente>
+            </sn:entradaServicio>
+         </sn:cuerpo>
+      </sn:solicitud>
+   </soapenv:Body>
+</soapenv:Envelope>
