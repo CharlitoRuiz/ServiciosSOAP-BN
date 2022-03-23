@@ -23,15 +23,27 @@ describe('Transferencias', ()  => {
                 
                     cy.convertToJson(xml).then((json) =>{
                         expect(json).not.to.be.empty
-                        expect(json["soap-env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:RowSet0"]["sn:RowSet0_Row"]["sn:TipoCompraDolares"]).equals(BDlist[0])
-                        expect(json["soap-env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:RowSet0"]["sn:RowSet0_Row"]["sn:TipoVentaDolares"]).equals(BDlist[1])
-                        expect(json["soap-env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:RowSet0"]["sn:RowSet0_Row"]["sn:TipoCompraEuros"]).equals(BDlist[2])
-                        expect(json["soap-env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:RowSet0"]["sn:RowSet0_Row"]["sn:TipoVentaEuros"]).equals(BDlist[3])
-                        expect(json["soap-env:Body"]["sn:respuesta"]["xmlns:sn"]).equals('http://www.bncr.fi.cr/soa/SN_ConsultarTipoCambio')
+
+                        const tag = 'soap-env:Body'
+                        let index = xmlString.search(tag)
+                        
+                        if(index >= 0){
+
+                            expect(json["soap-env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:RowSet0"]["sn:RowSet0_Row"]["sn:TipoCompraDolares"]).equals(BDlist[0])
+                            expect(json["soap-env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:RowSet0"]["sn:RowSet0_Row"]["sn:TipoVentaDolares"]).equals(BDlist[1])
+                            expect(json["soap-env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:RowSet0"]["sn:RowSet0_Row"]["sn:TipoCompraEuros"]).equals(BDlist[2])
+                            expect(json["soap-env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:RowSet0"]["sn:RowSet0_Row"]["sn:TipoVentaEuros"]).equals(BDlist[3])
+                            expect(json["soap-env:Body"]["sn:respuesta"]["xmlns:sn"]).equals('http://www.bncr.fi.cr/soa/SN_ConsultarTipoCambio')
+                        
+                        }else{
+
+                            assert.fail('Código ' + json["soapenv:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:resultado"]["sn:estado"] 
+                                + ', ' + json["soapenv:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:resultado"]["sn:mensaje"])
+                        }
                     })
 
-                    expect(response.status).eq(200)
-                    assert.equal(response.headers['content-type'], 'text/xml; charset=utf-8')
+                expect(response.status).eq(200)
+                assert.equal(response.headers['content-type'], 'text/xml; charset=utf-8')
             })
         })
     })

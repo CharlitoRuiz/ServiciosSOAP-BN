@@ -13,9 +13,15 @@ describe('Consultar Movimientos', () => {
                 let xml = parser.parseFromString(xmlString, "application/xml");
                 
                     cy.convertToJson(xml).then((json) =>{
-                       
                         expect(json).not.to.be.empty
-                        expect(json["soapenv:Body"]["xmlns:sn"]).equals('http://www.bncr.fi.cr/soa/SN_ConsultaMovimientos')
+                        
+                        if(json["soapenv:Body"]["xmlns:sn"] == 'http://www.bncr.fi.cr/soa/SN_ConsultaMovimientos'){
+                            expect(json["soapenv:Body"]["xmlns:sn"]).equals('http://www.bncr.fi.cr/soa/SN_ConsultaMovimientos')
+                        }
+                        else{
+                            assert.fail('Código ' + json["soapenv:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:resultado"]["sn:estado"] 
+                                + ', ' + json["soapenv:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:resultado"]["sn:mensaje"])
+                        }
                     })
                 
                 expect(response.status).eq(200)

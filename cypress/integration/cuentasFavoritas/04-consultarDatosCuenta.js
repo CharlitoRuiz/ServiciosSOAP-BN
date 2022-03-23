@@ -5,7 +5,6 @@ describe('Cuentas Favoritas', ()  => {
     it('Consultar Datos Cuenta', () => {
 
         let path = cuentasFavoritas.cuentasFavoritas.path
-        let BDlist = []
 
         cy.fixture('../fixtures/cuentasFavoritas/consultarDatosCuenta.xml').then((body) => {
             let xmlString = body;
@@ -24,20 +23,30 @@ describe('Cuentas Favoritas', ()  => {
                 cy.convertToJson(xml).then((json) =>{
                     expect(json).not.to.be.empty
 
-                    let numeroCuentaResponse = json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:items"]["sn:item"]["sn:Producto"] + 
-                    json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:items"]["sn:item"]["sn:Moneda"] + 
-                    json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:items"]["sn:item"]["sn:Oficina"] + 
-                    json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:items"]["sn:item"]["sn:numeroCuenta"] + 
-                    json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:items"]["sn:item"]["sn:digitoVerificador"]
+                    const tag = 'sn:items'
+                    let index = xmlString.search(tag)
+                        
+                    if(index >= 0){
+                        
+                        let numeroCuentaResponse = json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:items"]["sn:item"]["sn:Producto"] + 
+                        json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:items"]["sn:item"]["sn:Moneda"] + 
+                        json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:items"]["sn:item"]["sn:Oficina"] + 
+                        json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:items"]["sn:item"]["sn:numeroCuenta"] + 
+                        json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:items"]["sn:item"]["sn:digitoVerificador"]
                     
-                    expect(numeroCuenta).eq(numeroCuentaResponse)
-                    expect(json["env:Body"]["sn:respuesta"]["xmlns:sn"]).equals('http://www.bncr.fi.cr/soa/SN_ConsultaDatosCuenta')
+                        expect(numeroCuenta).eq(numeroCuentaResponse)
+                        expect(json["env:Body"]["sn:respuesta"]["xmlns:sn"]).equals('http://www.bncr.fi.cr/soa/SN_ConsultaDatosCuenta')
 
-                    })
-
-                    expect(response.status).eq(200)
-                    assert.equal(response.headers['content-type'], 'text/xml; charset=utf-8')
+                    }else{
+                        
+                        assert.fail('Código ' + json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:resultado"]["sn:estado"] 
+                            + ', ' + json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:resultado"]["sn:mensaje"])
+                    }
                 })
+
+                expect(response.status).eq(200)
+                assert.equal(response.headers['content-type'], 'text/xml; charset=utf-8')
             })
         })
+    })
 })
