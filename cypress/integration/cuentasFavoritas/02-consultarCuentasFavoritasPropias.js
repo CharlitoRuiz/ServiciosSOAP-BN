@@ -38,23 +38,30 @@ describe('Cuentas Favoritas', ()  => {
                 
                     cy.convertToJson(xml).then((json) =>{
                         expect(json).not.to.be.empty
-
-                        // si es mas de una fila de la tabla
-                        if (json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:cuentasIB"]["sn:RowSet0_Row"].length > 1) {
-                            json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:cuentasIB"]["sn:RowSet0_Row"].forEach(function(value, index, array) {
-                                expect(json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:cuentasIB"]["sn:RowSet0_Row"][index]["sn:Cuenta"].replace(/-/g,''))
-                                .equals(BDlist[index])
-                                expect(json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:cuentasIB"]["sn:RowSet0_Row"][index]["sn:esPropia"]).equal('N')
-                            });
-                        }
-                        // si es solo una fila de la tabla
-                        else{
-                            expect(json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:cuentasIB"]["sn:RowSet0_Row"]["sn:Cuenta"].replace(/-/g,''))
-                            .equals(BDlist[0])
-                        }
                         expect(json["env:Body"]["sn:respuesta"]["xmlns:sn"]).equals('http://www.bncr.fi.cr/soa/SN_ConsultaCuentasFavoritasPropias')
-                        expect(json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:resultado"]["sn:estado"]).equals('0')
-                        expect(json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:resultado"]["sn:mensaje"]).equals('Transacción Completa')
+
+                        if(json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:resultado"]["sn:estado"] == 99){
+                            assert.fail('Código ' + json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:resultado"]["sn:estado"] 
+                                + ', ' + json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:resultado"]["sn:mensaje"])
+                        }
+                        else{
+                            // si es mas de una fila de la tabla
+                            if (json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:cuentasIB"]["sn:RowSet0_Row"].length > 1) {
+                                json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:cuentasIB"]["sn:RowSet0_Row"].forEach(function(value, index, array) {
+                                    expect(json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:cuentasIB"]["sn:RowSet0_Row"][index]["sn:Cuenta"].replace(/-/g,''))
+                                    .equals(BDlist[index])
+                                    expect(json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:cuentasIB"]["sn:RowSet0_Row"][index]["sn:esPropia"]).equal('N')
+                                });
+                            }
+                            // si es solo una fila de la tabla
+                            else{
+                                expect(json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:cuentasIB"]["sn:RowSet0_Row"]["sn:Cuenta"].replace(/-/g,''))
+                                .equals(BDlist[0])
+                            }
+                        
+                            expect(json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:resultado"]["sn:estado"]).equals('0')
+                            expect(json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:resultado"]["sn:mensaje"]).equals('Transacción Completa')
+                        }
                     })
 
                     expect(response.status).eq(200)
@@ -62,5 +69,4 @@ describe('Cuentas Favoritas', ()  => {
             })
         })
     })
-
 })

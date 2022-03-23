@@ -38,26 +38,36 @@ describe('Convenios', () => {
                 
             cy.convertToJson(xml).then((json) =>{
                 expect(json).not.to.be.empty
+
+                const tag = 'soap-env:Body'
+                let index = xmlString.search(tag)
+                        
+                if(index >= 0){
                 
-                if (json["soap-env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:recibosFrecuentes"]["sn:reciboFrecuente"].length > 1) {
-                    json["soap-env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:recibosFrecuentes"]["sn:reciboFrecuente"].forEach(function(value, index, array) {
-                        expect(json["soap-env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:recibosFrecuentes"]["sn:reciboFrecuente"][index]["sn:llave"].replace(/ /g,''))
-                        .equals(BDlist[index])
-                    });
-                }
-                else{
-                    expect(json["soap-env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:recibosFrecuentes"]["sn:reciboFrecuente"]["sn:llave"].replace(/ /g,''))
-                    .equals(BDlist[0])
-                }
+                    if (json["soap-env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:recibosFrecuentes"]["sn:reciboFrecuente"].length > 1) {
+                        json["soap-env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:recibosFrecuentes"]["sn:reciboFrecuente"].forEach(function(value, index, array) {
+                            expect(json["soap-env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:recibosFrecuentes"]["sn:reciboFrecuente"][index]["sn:llave"].replace(/ /g,''))
+                            .equals(BDlist[index])
+                        });
+                    }
+                    else{
+                        expect(json["soap-env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:recibosFrecuentes"]["sn:reciboFrecuente"]["sn:llave"].replace(/ /g,''))
+                        .equals(BDlist[0])
+                    }
                 
-                expect(json["soap-env:Body"]["sn:respuesta"]["sn1:encabezado"]["xmlns:sn1"]).equals('http://www.bncr.fi.cr/soa/SN_ConsultaRecibosFrecuentes')
-                expect(json["soap-env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:resultado"]["sn:estado"]).equals('00')
-                expect(json["soap-env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:resultado"]["sn:mensaje"]).equals('Transacción completa')
+                    expect(json["soap-env:Body"]["sn:respuesta"]["sn1:encabezado"]["xmlns:sn1"]).equals('http://www.bncr.fi.cr/soa/SN_ConsultaRecibosFrecuentes')
+                    expect(json["soap-env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:resultado"]["sn:estado"]).equals('00')
+                    expect(json["soap-env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:resultado"]["sn:mensaje"]).equals('Transacción completa')
+                
+                }else{
+                    
+                    assert.fail('Código ' + json["soapenv:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:resultado"]["sn:estado"] 
+                        + ', ' + json["soapenv:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:resultado"]["sn:mensaje"])
+                }
             })
                 expect(response.status).eq(200)
                 assert.equal(response.headers['content-type'], 'text/xml; charset=utf-8')
             })
         })
-        
     })
 })
