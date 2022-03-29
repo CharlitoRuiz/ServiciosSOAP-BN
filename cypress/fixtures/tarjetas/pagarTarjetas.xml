@@ -1,0 +1,59 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sn="http://www.bncr.fi.cr/soa/SN_PagoTarjetas">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sn:solicitud>
+         <sn:encabezado>
+            <sn:fechaHoraConsumo>2020-01-26T19:15:54.294Z</sn:fechaHoraConsumo>
+            <sn:canalConsumidor>IBP</sn:canalConsumidor>
+            <sn:usuarioConsumidor>113720104</sn:usuarioConsumidor>
+            <sn:direccionIPConsumo>?</sn:direccionIPConsumo>
+            <sn:nombreServicio>?</sn:nombreServicio>
+         </sn:encabezado>
+         <sn:cuerpo>
+            <sn:entradaServicio>
+               <sn:numeroCliente>428402</sn:numeroCliente>
+               <sn:subTransaccion>1</sn:subTransaccion>
+               <sn:tarjeta>4938-24XX-XXXX-3186</sn:tarjeta>
+               <sn:cuentaClienteTarjeta>15114850770620586</sn:cuentaClienteTarjeta>
+               <sn:tipoIdentificacionClienteTarjeta>1</sn:tipoIdentificacionClienteTarjeta>
+               <sn:IdentificacionClienteTarjeta>1-1372-0104</sn:IdentificacionClienteTarjeta>
+               <sn:origenProceso>46</sn:origenProceso>
+               <sn:oficina>228</sn:oficina>
+               <sn:modoOperacion>1</sn:modoOperacion>
+               <sn:monedaServicio>1</sn:monedaServicio>
+               <sn:montoMovimiento>500.00</sn:montoMovimiento>
+               <sn:monedaTransaccion>01</sn:monedaTransaccion>
+               <sn:tipoIdentificacion>1</sn:tipoIdentificacion>
+               <sn:numeroIdentificacion>113720104</sn:numeroIdentificacion>
+               <sn:cuentaClienteOrigen></sn:cuentaClienteOrigen>
+               <sn:productoOrigen>100</sn:productoOrigen>
+               <sn:monedaOrigen>01</sn:monedaOrigen>
+               <sn:oficinaOrigen>080</sn:oficinaOrigen>
+               <sn:numeroCuentaOrigen>100015</sn:numeroCuentaOrigen>
+               <sn:digitoVerificadorOrigen>3</sn:digitoVerificadorOrigen>
+               <sn:nombreCuentaOrigen>CARLOS LUIS RUIZ CAMPOS</sn:nombreCuentaOrigen>
+               <sn:cuentaClienteDestino></sn:cuentaClienteDestino>
+               <sn:productoDestino>100</sn:productoDestino>
+               <sn:monedaDestino>01</sn:monedaDestino>
+               <sn:oficinaDestino>080</sn:oficinaDestino>
+               <sn:numeroCuentaDestino>001700</sn:numeroCuentaDestino>
+               <sn:digitoVerificadorDestino>7</sn:digitoVerificadorDestino>
+               <sn:detalleMovimiento>PAGO VISA 4938-24XX-XXXX-3186</sn:detalleMovimiento>
+               <sn:nombreDepositante>RUIZ CAMPOS CARLOS LUIS</sn:nombreDepositante>
+               <sn:motivoCompraVenta>00</sn:motivoCompraVenta>
+               <sn:claseTarjeta>VISA ORO INT.</sn:claseTarjeta>
+               <sn:tipoTarjeta>TITULAR</sn:tipoTarjeta>
+               <sn:duenoTarjeta>CARLOS LUIS RUIZ CAMPOS</sn:duenoTarjeta>
+               <sn:ibanCuentaOrigen>CR34 0151 0801 0011 0001 56</sn:ibanCuentaOrigen>
+               <sn:formatoComprobante>B</sn:formatoComprobante>
+               <!--Optional:-->
+               <sn:existeFirma>N</sn:existeFirma>
+               <!--Optional:-->
+               <sn:resultadoFirma>?</sn:resultadoFirma>
+               <!--Optional:-->
+               <sn:idReferenciaFirma>0</sn:idReferenciaFirma>
+            </sn:entradaServicio>
+         </sn:cuerpo>
+      </sn:solicitud>
+   </soapenv:Body>
+</soapenv:Envelope>
