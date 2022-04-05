@@ -35,14 +35,15 @@ Cypress.Commands.add('getMethod', (path) => {
     })
 })
 
-Cypress.Commands.add('postMethod', (path, body) => {
+Cypress.Commands.add('postMethod', (path, body, failOnStatusCode) => {
     cy.request({
         method:'POST', 
         url: Cypress.config("baseUrl") + path,
         headers: {
             "ContentType": "text/xml; charset=utf-8"
         },
-        body: body
+        body: body,
+        failOnStatusCode: failOnStatusCode,
     }).then((response) => {
         return response
     })

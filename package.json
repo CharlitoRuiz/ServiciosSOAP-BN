@@ -9,8 +9,10 @@
     "tedious": "^8.3.0"
   },
   "scripts": {
-    "test": "cypress run --env allure=true --headless && allure generate allure-results --clean -o allure-report",
-    "test:head": "cypress run --env allure=true --headed && allure generate allure-results --clean -o allure-report",
-    "test:open:reporter": "cypress run --env allure=true --headless && allure generate allure-results --clean -o allure-report && allure open  allure-report"
+    "test:reporter": "npm run allure:clear && npm run test || npm run posttest",
+    "test:open:reporter": "allure open allure-report",
+    "allure:clear": "if exist allure-results rmdir /q /s allure-results",
+    "test": "cypress run --env allure=true",
+    "posttest": "allure generate allure-results --clean -o allure-report"
   }
 }
