@@ -2,7 +2,7 @@
    <soapenv:Header/>
    <soapenv:Body>
       <sn:solicitud>
-         <!--Optional:-->
+      <!--Optional:-->
          <sn:encabezado>
             <sn:fechaHoraConsumo>2020-01-26T19:15:54.294Z</sn:fechaHoraConsumo>
             <sn:canalConsumidor>IBP</sn:canalConsumidor>
@@ -10,7 +10,7 @@
             <sn:direccionIPConsumo>?</sn:direccionIPConsumo>
             <sn:nombreServicio>?</sn:nombreServicio>
          </sn:encabezado>
-         <!--Optional:-->
+      <!--Optional:-->
          <sn:cuerpo>
             <!--Optional:-->
             <sn:entradaServicio>
@@ -28,15 +28,15 @@
                      <!--Optional:-->
                      <sn:tipoConectividad>2</sn:tipoConectividad>
                      <!--Optional:-->
-                     <sn:codigoConvenio>1</sn:codigoConvenio>
+                     <sn:codigoConvenio>15</sn:codigoConvenio>
                      <!--Optional:-->
-                     <sn:tipoLlave>99</sn:tipoLlave>
+                     <sn:tipoLlave>16</sn:tipoLlave>
                      <!--Optional:-->
-                     <sn:empresa>156</sn:empresa>
+                     <sn:empresa>699</sn:empresa>
                      <!--Optional:-->
                      <sn:numeroServicio>113720104</sn:numeroServicio>
                      <!--Optional:-->
-                     <sn:codigoInstitucion>156</sn:codigoInstitucion>
+                     <sn:codigoInstitucion>699</sn:codigoInstitucion>
                      <!--Optional:-->
                      <sn:usuarioTC>IBANK</sn:usuarioTC>
                      <!--Optional:-->
@@ -50,13 +50,13 @@
                      <!--Optional:-->
                      <sn:valorServicio>113720104</sn:valorServicio>
                      <!--Optional:-->
-                     <sn:periodoRecibo>20220302</sn:periodoRecibo>
+                     <sn:periodoRecibo>20220408</sn:periodoRecibo>
                      <!--Optional:-->
-                     <sn:montoRecibo>2000.00</sn:montoRecibo>
+                     <sn:montoRecibo>6600.00</sn:montoRecibo>
                      <!--Optional:-->
                      <sn:fechaVencimiento></sn:fechaVencimiento>
                      <!--Optional:-->
-                     <sn:numeroFactura>00000000000002893354</sn:numeroFactura>
+                     <sn:numeroFactura>00000000000002894909</sn:numeroFactura>
                      <!--Optional:-->
                      <sn:selfDeVerificacion>0</sn:selfDeVerificacion>
                      <!--Optional:-->
@@ -64,13 +64,13 @@
                      <!--Optional:-->
                      <sn:monedaServicio>01</sn:monedaServicio>
                      <!--Optional:-->
-                     <sn:nombreEmpresa>ICER - MEP</sn:nombreEmpresa>
+                     <sn:nombreEmpresa>UNIVERSIDAD DE COSTA RICA</sn:nombreEmpresa>
                      <!--Optional:-->
-                     <sn:nombreConvenio>PRUEBAS ICER</sn:nombreConvenio>
+                     <sn:nombreConvenio>15-EXAMEN ADM.PRESENCIAL</sn:nombreConvenio>
                      <!--Optional:-->
-                     <sn:nombreValorServicio>IDENTIFICACION</sn:nombreValorServicio>
+                     <sn:nombreValorServicio>IDENTIFICADOR</sn:nombreValorServicio>
                      <!--Optional:-->
-                     <sn:nombreDuenoRecibo>CARLOS LUIS RUIZ CAMPOS</sn:nombreDuenoRecibo>
+                     <sn:nombreDuenoRecibo>Cliente No. 113720104</sn:nombreDuenoRecibo>
                      <!--Optional:-->
                      <sn:numeroTransaccion>0</sn:numeroTransaccion>
                      <!--Optional:-->
@@ -86,15 +86,15 @@
                      <!--Optional:-->
                      <sn:oficina>228</sn:oficina>
                      <!--Optional:-->
-                     <sn:montoMovimiento>2000.00</sn:montoMovimiento>
+                     <sn:montoMovimiento>6600.00</sn:montoMovimiento>
                      <!--Optional:-->
                      <sn:monedaTransaccion>01</sn:monedaTransaccion>
                      <!--Optional:-->
                      <sn:tipoIdentificacion>1</sn:tipoIdentificacion>
                      <!--Optional:-->
-                     <sn:numeroIdentificacion>6-0383-0569</sn:numeroIdentificacion>
+                     <sn:numeroIdentificacion>1-1372-0104</sn:numeroIdentificacion>
                      <!--Optional:-->
-                     <sn:numeroCliente>695517</sn:numeroCliente>
+                     <sn:numeroCliente>428402</sn:numeroCliente>
                      <!--Optional:-->
                      <sn:cuentaClienteOrigen></sn:cuentaClienteOrigen>
                      <!--Optional:-->
@@ -102,15 +102,15 @@
                      <!--Optional:-->
                      <sn:monedaOrigen>01</sn:monedaOrigen>
                      <!--Optional:-->
-                     <sn:oficinaOrigen>000</sn:oficinaOrigen>
+                     <sn:oficinaOrigen>080</sn:oficinaOrigen>
                      <!--Optional:-->
-                     <sn:numeroCuentaOrigen>325970</sn:numeroCuentaOrigen>
+                     <sn:numeroCuentaOrigen>100015</sn:numeroCuentaOrigen>
                      <!--Optional:-->
-                     <sn:digitoVerificadorOrigen>9</sn:digitoVerificadorOrigen>
+                     <sn:digitoVerificadorOrigen>3</sn:digitoVerificadorOrigen>
                      <!--Optional:-->
-                     <sn:detalleMovimiento>Pago I.C.E.R 113720104</sn:detalleMovimiento>
+                     <sn:detalleMovimiento>Pago UCR 113720104</sn:detalleMovimiento>
                      <!--Optional:-->
-                     <sn:nombreDepositante>ARCE HERNANDEZ JEYCO MAQUEY</sn:nombreDepositante>
+                     <sn:nombreDepositante>RUIZ CAMPOS CARLOS LUIS</sn:nombreDepositante>
                      <!--Optional:-->
                      <sn:motivoCompraVenta>00</sn:motivoCompraVenta>
                      <!--Optional:-->
@@ -121,8 +121,9 @@
                      <sn:codigoEstablecimiento></sn:codigoEstablecimiento>
                      <!--Optional:-->
                      <sn:origenProceso></sn:origenProceso>
-                     <sn:cuentaIBANOrigen>CR92 0151 0001 0013 2597 09</sn:cuentaIBANOrigen>
+                     <sn:cuentaIBANOrigen>CR34 0151 0801 0011 0001 56</sn:cuentaIBANOrigen>
                      <sn:esFavorito>true</sn:esFavorito>
+                     <sn:formatoCompobanteCuentaDebitada>I</sn:formatoCompobanteCuentaDebitada>
                   </sn:pago>
                </sn:pagos>
             </sn:entradaServicio>
