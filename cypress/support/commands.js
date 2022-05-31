@@ -1,33 +1,9 @@
 /// <reference types="cypress" />
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+//* Command para usar la peticion GET
 Cypress.Commands.add('getMethod', (path) => {
     cy.request({
-        method:'GET', 
+        method: 'GET',
         url: '' + path,
         headers: {}
     }).then((response) => {
@@ -35,9 +11,10 @@ Cypress.Commands.add('getMethod', (path) => {
     })
 })
 
+//* Command para usar la peticion POST
 Cypress.Commands.add('postMethod', (path, body, failOnStatusCode) => {
     cy.request({
-        method:'POST', 
+        method: 'POST',
         url: Cypress.config("baseUrl") + path,
         headers: {
             "ContentType": "text/xml; charset=utf-8"
@@ -49,14 +26,17 @@ Cypress.Commands.add('postMethod', (path, body, failOnStatusCode) => {
     })
 })
 
-Cypress.Commands.add('convertToJson', (xml) =>{
+
+//* Command para convertir un xml a formato json
+//* Recibe de parametro el archivo xml
+Cypress.Commands.add('convertToJson', (xml) => {
     var json = convertirXmlEnObjeto(xml)
     return json
 })
 
-// Generic function
+//* Funcion llamada en el command
 function convertirXmlEnObjeto(xml) {
-    
+
     let object = {};
     let isRoot = false;
 
@@ -67,89 +47,93 @@ function convertirXmlEnObjeto(xml) {
                 object[attribute.nodeName] = attribute.nodeValue;
             }
         }
-    } 
-    else if (xml.nodeType == 3) { 
+    }
+    else if (xml.nodeType == 3) {
         object = xml.nodeValue;
-    } 
-    else if (xml.nodeType == 9) { 
+    }
+    else if (xml.nodeType == 9) {
         isRoot = true;
     }
 
     if (xml.hasChildNodes()) {
-        for(var i = 0; i < xml.childNodes.length; i++) {
+        for (var i = 0; i < xml.childNodes.length; i++) {
             let item = xml.childNodes.item(i);
             let nodeName = item.nodeName;
 
-            if (typeof(object[nodeName]) == "undefined") {
+            if (typeof (object[nodeName]) == "undefined") {
                 if (nodeName == "#cdata-section") {
                     object = item.nodeValue;
-                } 
-                else if (nodeName == "#text") { 
+                }
+                else if (nodeName == "#text") {
                     if (item.childNodes.length < 1) {
                         object = item.nodeValue;
-                    } 
-                    else {
-                        object[nodeName] = convertirXmlEnObjeto(item);
                     }
-                } 
-                else {
-                    if (isRoot) {
-                        object = convertirXmlEnObjeto(item);
-                    } 
                     else {
                         object[nodeName] = convertirXmlEnObjeto(item);
                     }
                 }
-            } 
+                else {
+                    if (isRoot) {
+                        object = convertirXmlEnObjeto(item);
+                    }
+                    else {
+                        object[nodeName] = convertirXmlEnObjeto(item);
+                    }
+                }
+            }
             else {
-                if (typeof(object[nodeName].push) == "undefined") {
+                if (typeof (object[nodeName].push) == "undefined") {
                     let attributeValue = object[nodeName];
                     object[nodeName] = new Array();
                     object[nodeName].push(attributeValue);
                 }
 
                 object[nodeName].push(convertirXmlEnObjeto(item));
-                }
             }
         }
-    
-        return object;  
+    }
+
+    return object;
 }
 
-Cypress.Commands.add('convertXmlToJson', (xml) =>{
+
+//* Command para convertir un xml a json, diferente a la anterior porque esta convierte para un tipo de respuesta especifico, solo se usa en el procesarPago de COnvenios
+Cypress.Commands.add('convertXmlToJson', (xml) => {
     var json = xmlToJson(xml)
     return json
 })
 
+//* Funciona llamada en el command
 function xmlToJson(xml) {
     try {
-      var obj = {};
-      if (xml.children.length > 0) {
-        for (var i = 0; i < xml.children.length; i++) {
-          var item = xml.children.item(i);
-          var nodeName = item.nodeName;
-  
-          if (typeof (obj[nodeName]) == "undefined") {
-            obj[nodeName] = xmlToJson(item);
-          } else {
-            if (typeof (obj[nodeName].Push) == "undefined") {
-              var old = obj[nodeName];
-  
-              obj[nodeName] = [];
-              obj[nodeName].Push(old);
+        var obj = {};
+        if (xml.children.length > 0) {
+            for (var i = 0; i < xml.children.length; i++) {
+                var item = xml.children.item(i);
+                var nodeName = item.nodeName;
+
+                if (typeof (obj[nodeName]) == "undefined") {
+                    obj[nodeName] = xmlToJson(item);
+                } else {
+                    if (typeof (obj[nodeName].Push) == "undefined") {
+                        var old = obj[nodeName];
+
+                        obj[nodeName] = [];
+                        obj[nodeName].Push(old);
+                    }
+                    obj[nodeName].Push(xmlToJson(item));
+                }
             }
-            obj[nodeName].Push(xmlToJson(item));
-          }
+        } else {
+            obj = xml.textContent;
         }
-      } else {
-        obj = xml.textContent;
-      }
-      return obj;
+        return obj;
     } catch (e) {
         console.log(e.message);
     }
 }
 
+//* Command para ejecutar un script en la BD que tenemos configurada en el archivo "cypress.json"
 Cypress.Commands.add('sqlServerDB', (query) => {
     if (!query) {
         throw new Error('Query must be set');
@@ -175,3 +159,11 @@ Cypress.Commands.add('sqlServerDB', (query) => {
         return result;
     });
 });
+
+//* Command para rellenar los ceros antes de un string (usada para llenar el campo numero de factura del xml)
+Cypress.Commands.add('RellenarCeros', (num, width) => {
+    return num
+        .toString()
+        .padStart(width, 0)
+})
+

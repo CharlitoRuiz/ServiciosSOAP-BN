@@ -4,10 +4,9 @@ const convenios = require('../../fixtures/path.json')
 
 describe('Convenios', () => {
     it('Consultar Conectividad', () => {
-
         let path = convenios.convenios.path
         const failOnStatusCode = false
-        
+
         cy.fixture('../fixtures/convenios/consultarConectividad.xml').then((body) => {
             let xmlString = body;
             let parser = new DOMParser();
@@ -18,14 +17,12 @@ describe('Convenios', () => {
             let llaveAcceso = xml.getElementsByTagName("sn:llaveAcceso")[0].childNodes[0].nodeValue
 
             cy.postMethod(path, body, failOnStatusCode).then((response) => {
-                
                 let xmlString = response.body;
                 let parser = new DOMParser();
                 let xml = parser.parseFromString(xmlString, "application/xml");
-                
-                if(response.status == 200){
 
-                    cy.convertToJson(xml).then((json) =>{
+                if (response.status == 200) {
+                    cy.convertToJson(xml).then((json) => {
                         expect(json).not.to.be.empty
                         expect(json["env:Body"]["sn:respuesta"]["xmlns:sn"]).equals('http://www.bncr.fi.cr/soa/SN_ConectividadConsulta')
                         expect(json["env:Body"]["sn:respuesta"]["sn:cuerpo"]["sn:salidaServicio"]["sn:rubros"]["sn:rubro"]["sn:convenio"]).equals(convenio)
@@ -37,12 +34,11 @@ describe('Convenios', () => {
                     })
 
                     expect(response.status).eq(200)
+                }
 
-                }else{
-                    
-                    cy.convertToJson(xml).then((json) =>{
+                else {
+                    cy.convertToJson(xml).then((json) => {
                         expect(json).not.to.be.empty
-
                         assert.fail('Código ' + json["soapenv:Body"]["soapenv:Fault"]["faultstring"])
                     })
                 }
