@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-//* Command para usar la peticion GET
+/* A custom command that is used to make a GET request. */
 Cypress.Commands.add('getMethod', (path) => {
     cy.request({
         method: 'GET',
@@ -11,7 +11,7 @@ Cypress.Commands.add('getMethod', (path) => {
     })
 })
 
-//* Command para usar la peticion POST
+/* A custom command that is used to make a POST request. */
 Cypress.Commands.add('postMethod', (path, body, failOnStatusCode) => {
     cy.request({
         method: 'POST',
@@ -27,14 +27,18 @@ Cypress.Commands.add('postMethod', (path, body, failOnStatusCode) => {
 })
 
 
-//* Command para convertir un xml a formato json
-//* Recibe de parametro el archivo xml
+/* A custom command that is used to convert an xml to json. */
 Cypress.Commands.add('convertToJson', (xml) => {
     var json = convertirXmlEnObjeto(xml)
     return json
 })
 
-//* Funcion llamada en el command
+
+/**
+ * It converts an XML document into a JavaScript object.
+ * @param xml - The XML document to convert.
+ * @returns An object.
+ */
 function convertirXmlEnObjeto(xml) {
 
     let object = {};
@@ -96,14 +100,26 @@ function convertirXmlEnObjeto(xml) {
     return object;
 }
 
-
-//* Command para convertir un xml a json, diferente a la anterior porque esta convierte para un tipo de respuesta especifico, solo se usa en el procesarPago de COnvenios
+/* A custom command that is used to convert an xml to json. */
 Cypress.Commands.add('convertXmlToJson', (xml) => {
     var json = xmlToJson(xml)
     return json
 })
 
-//* Funciona llamada en el command
+/**
+ * If the XML node has children, then loop through each child and add it to the object. If the node
+ * doesn't have children, then add the text content of the node to the object.
+ * @param xml - The XML document to convert to JSON.
+ * @returns {
+ *     "soap:Envelope": {
+ *         "soap:Body": {
+ *             "GetCitiesByCountryResponse": {
+ *                 "GetCitiesByCountryResult": {
+ *                     "NewDataSet": {
+ *                         "Table": [{
+ *                             "Country": "United States",
+ *                             "City": "New York"
+ */
 function xmlToJson(xml) {
     try {
         var obj = {};
@@ -133,7 +149,8 @@ function xmlToJson(xml) {
     }
 }
 
-//* Command para ejecutar un script en la BD que tenemos configurada en el archivo "cypress.json"
+/* A custom command that is used to execute a script in the DB that we have configured in the
+"cypress.json" file. */
 Cypress.Commands.add('sqlServerDB', (query) => {
     if (!query) {
         throw new Error('Query must be set');
@@ -160,6 +177,7 @@ Cypress.Commands.add('sqlServerDB', (query) => {
     });
 });
 
+/* A custom command that is used to fill the zeros before a string. */
 //* Command para rellenar los ceros antes de un string (usada para llenar el campo numero de factura del xml)
 Cypress.Commands.add('RellenarCeros', (num, width) => {
     return num

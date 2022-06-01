@@ -22,7 +22,13 @@ module.exports = (on, config) => {
   return config
 }
 
-//* Plugin Tedious encargado de la conexion a la BD
+/**
+ * It takes a SQL query and a config object, and returns a promise that resolves to the rows returned
+ * by the query.
+ * @param sql - The SQL query to execute.
+ * @param config - This is the configuration object that Tedious needs to connect to the database.
+ * @returns The function execSQL is being returned.
+ */
 const tedious = require('tedious')
 function execSQL(sql, config) {
   const connection = new tedious.Connection(config);
